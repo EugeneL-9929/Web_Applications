@@ -10,11 +10,11 @@
         <h2>
             Setup the database
         </h2>
-        <p>
-            CREATE DATABASE CV; <br>
-            CREATE USER ADMIN@localhost IDENTIDIED "PASS"; <br>
-            GRANT ALL ON CV TO ADMIN@localhost;
-            CREATE TABLE Users (
+        <pre>
+            CREATE DATABASE CV; 
+            CREATE USER ADMIN@localhost IDENTIDIED "PASS"; 
+            GRANT ALL ON CV TO ADMIN@localhost; 
+            CREATE TABLE Users ( 
                 id INT AUTO_INCREMENT PRIMARY KEY UNIQUE,
                 email VARCHAR(100),
                 password VARCHAR(100)
@@ -22,9 +22,11 @@
             CREATE TABLE Profile (
                 id INT AUTO_INCREMENT PRIMARY KEY UNIQUE,
                 users_id INT,
-                year DATE
+                year DATE,
+                CONSTRAINT FOREIGN KEY (users_id) REFERENCES Users (id) 
+                ON DELETE CASCADE ON UPDATE CASCADE
             );
-        </p>
+        </pre>
     </main>
 </body>
 </html>
