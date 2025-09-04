@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Web Applications </title>
+</head>
+<body>
+    <main>
+        <h2>
+            Setup the database
+        </h2>
+        <p>
+            CREATE DATABASE CV; <br>
+            CREATE USER ADMIN@localhost IDENTIDIED "PASS"; <br>
+            GRANT ALL ON CV TO ADMIN@localhost;
+            CREATE TABLE Users (
+                id INT AUTO_INCREMENT PRIMARY KEY UNIQUE,
+                email VARCHAR(100),
+                password VARCHAR(100)
+            );
+            CREATE TABLE Profile (
+                id INT AUTO_INCREMENT PRIMARY KEY UNIQUE,
+                users_id INT,
+                year DATE
+            );
+        </p>
+    </main>
+</body>
+</html>
