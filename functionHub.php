@@ -4,7 +4,7 @@
 validation function
 */
 
-function validationName(){
+function validateEmail(){
     if ( strlrn($_POST['email']) < 1 ){
         return "All fields are required.";
     } elseif ( strpos($_POST['email'], '@') ){
@@ -12,6 +12,14 @@ function validationName(){
     }
 
     return true;
+}
+
+function validateName(){
+    if(strlen($_POST['name']) < 1){
+        return "All fields are required.";
+    } else {
+        return true;
+    }
 }
 
 function validatePeriod($max_num){
@@ -44,4 +52,17 @@ function validateYear($max_num){
     }
 
     return true;
+}
+
+function validateLogin(){
+    if(!isset($_SESSION['name'])){
+        die("Access Denied!")
+    }
+}
+
+function releaseFlashError(){
+    if (isset($_SESSION['error'])){
+        echo '<p style="color: red">' . htmlentities($_SESSION['error']) . '</p>\n';
+        unset($_SESSION['error']);
+    }
 }
