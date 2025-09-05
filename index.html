@@ -19,7 +19,9 @@
             DROP TABLE IF EXISTS Users;
             CREATE TABLE Users ( 
                 id INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
-                email VARCHAR(100),
+                name VARCHAR(100),
+                email VARCHAR(100) UNIQUE,
+                INDEX(email),
                 password VARCHAR(100)
             );
             DROP TABLE IF EXISTS Profile;
