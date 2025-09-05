@@ -1,7 +1,7 @@
 <?php
 require_once "PDOConnector.php";
 session_start();
-
+$stmt = $pdo->query("SELECT ");
 
 
 ?>
