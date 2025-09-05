@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Web Applications </title>
+</head>
+<body>
+    <main>
+        <h2>
+            Setup the database
+        </h2>
+        <pre>
+            DROP DATABASE IF EXISTS CV; 
+            CREATE DATABASE CV; 
+            USE CV;
+            CREATE USER 'ADMIN'@localhost IDENTIFIED BY "PASS"; 
+            GRANT ALL ON CV.* TO 'ADMIN'@localhost; 
+            DROP TABLE IF EXISTS Users;
+            CREATE TABLE Users ( 
+                id INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
+                name VARCHAR(100),
+                email VARCHAR(100) UNIQUE,
+                INDEX(email),
+                password VARCHAR(100)
+            );
+            DROP TABLE IF EXISTS Profile;
+            CREATE TABLE Profile (
+                id INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
+                users_id INT,
+                year DATE,
+                CONSTRAINT FOREIGN KEY (users_id) REFERENCES Users (id) 
+                ON DELETE CASCADE ON UPDATE CASCADE
+            );
+        </pre>
+    </main>
+</body>
+</html>
