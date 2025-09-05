@@ -1,4 +1,11 @@
+<?php
+require_once "PDOConnector.php";
+require_once "functionHub.php";
+session_start();
 
+$_SESSION[]
+
+?>
 
 <script> 
     countItem = 0;
